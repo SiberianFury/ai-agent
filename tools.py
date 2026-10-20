@@ -14,7 +14,7 @@ class Tool:
     @property
     def description(self):
         return self._description
-    @name.setter
+    @description.setter
     def description(self, value):
         if not isinstance(value, str) or value == "":
             raise ValueError("Неподходящий формат данных, нужна непустая строка.")
@@ -23,11 +23,11 @@ class Tool:
     def run(self):
         return "Not implemented"
     def __str__(self):
-        return (f"Tool: {self._name} - {self._description}")
+        return (f"Tool: {self.name} - {self.description}")
     def __repr__(self):
-        return (f"Tool(name={self._name!r}, description={self._description!r} ")
+        return (f"Tool(name={self.name!r}, description={self.description!r})")
     def __eq__(self, other):
-        return self._name == other._name and self._description == other._description
+        return self._name == other.name and self.description == other.description
 
 class CalculatorTool(Tool):
     def __init__(self):
